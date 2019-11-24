@@ -1,0 +1,9 @@
+<Application x:Uid="Application_1" x:Class="Anguista.Main.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Anguista.Main.Properties"
+    StartupUri="WndMain.xaml" Startup="Application_Startup">
+    <Application.Resources>
+        <local:Resources x:Key="resources"/>
+    </Application.Resources>
+</Application>
