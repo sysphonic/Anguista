@@ -184,7 +184,7 @@
     <value>Edit</value>
   </data>
   <data name="GENERAL_CONFIG" xml:space="preserve">
-    <value>General Config.</value>
+    <value>Module</value>
   </data>
   <data name="MAX_ITEMS_TO_DISPLAY" xml:space="preserve">
     <value>Max. items to display :</value>
@@ -208,7 +208,7 @@
     <value>RSS Site</value>
   </data>
   <data name="RSS_SITES" xml:space="preserve">
-    <value>RSS Sites</value>
+    <value>Component</value>
   </data>
   <data name="RSS_TITLE" xml:space="preserve">
     <value>Title :</value>
@@ -220,7 +220,7 @@
     <value>Anguista</value>
   </data>
   <data name="TRASH" xml:space="preserve">
-    <value>Trash</value>
+    <value>Service</value>
   </data>
   <data name="USER_NAME" xml:space="preserve">
     <value>User Name :</value>
@@ -240,9 +240,6 @@
   </data>
   <data name="config" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\config.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="file" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\file.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="file1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -266,16 +266,6 @@ namespace Anguista.Main.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
-        public static System.Drawing.Bitmap file {
-            get {
-                object obj = ResourceManager.GetObject("file", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
         public static System.Drawing.Bitmap file1 {
             get {
                 object obj = ResourceManager.GetObject("file1", resourceCulture);
@@ -294,7 +284,7 @@ namespace Anguista.Main.Properties {
         }
         
         /// <summary>
-        ///   General Config. に類似しているローカライズされた文字列を検索します。
+        ///   Module に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string GENERAL_CONFIG {
             get {
@@ -376,7 +366,7 @@ namespace Anguista.Main.Properties {
         }
         
         /// <summary>
-        ///   RSS Sites に類似しているローカライズされた文字列を検索します。
+        ///   Component に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string RSS_SITES {
             get {
@@ -457,7 +447,7 @@ namespace Anguista.Main.Properties {
         }
         
         /// <summary>
-        ///   Trash に類似しているローカライズされた文字列を検索します。
+        ///   Service に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string TRASH {
             get {

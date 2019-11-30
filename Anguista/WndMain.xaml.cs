@@ -15,23 +15,19 @@ using System.Windows.Forms;
 
 namespace Anguista.Main
 {
-    /// <summary>Settings Window class.</summary>
     public partial class WndMain : Window
     {
-        /// <summary>URI of the Channel Icon.</summary>
-        protected const string CHANNEL_ICON_URI = @"pack://application:,,,/Resources/ball_blue.png";
+        protected const string ICON_URI_PROJECT = @"pack://application:,,,/Resources/project.png";
+        protected const string ICON_URI_FOLDER = @"pack://application:,,,/Resources/folder.png";
+        protected const string ICON_URI_FILE = @"pack://application:,,,/Resources/file.png";
+        protected const string ICON_URI_ITEM = @"pack://application:,,,/Resources/ball_blue.png";
+        protected const string ICON_URI_MODULE = @"pack://application:,,,/Resources/module.png";
 
-        /// <summary>URI of the Item Icon.</summary>
-        protected const string ITEM_ICON_URI = @"pack://application:,,,/Resources/file.png";
-
-        /// <summary>Node type of Trash Box : Target.</summary>
-        protected const string TRASH_NODE_TARGET = @"target";
-
-        /// <summary>Node type of Trash Box : Channel.</summary>
-        protected const string TRASH_NODE_CHANNEL = @"channel";
-
-        /// <summary>Node type of Trash Box : Item.</summary>
-        protected const string TRASH_NODE_ITEM = @"item";
+        protected const string NODE_PROJECT = @"project";
+        protected const string NODE_FOLDER = @"folder";
+        protected const string NODE_FILE = @"file";
+        protected const string NODE_ITEM = @"item";
+        protected const string NODE_MODULE = @"module";
 
         /// <summary>Configuration manager.</summary>
         protected ConfigManager _configManager = null;
@@ -60,18 +56,11 @@ namespace Anguista.Main
         /// <summary>Mutex to check if the same process exists.</summary>
         private static System.Threading.Mutex _mutex;
 
-        /// <summary>Feed icon.</summary>
-        BitmapImage _feedIcon = null;
-
-
-        /// <summary>Zeptair icon.</summary>
-        BitmapImage _zeptairIcon = null;
-
-        /// <summary>Feed channel icon.</summary>
-        BitmapImage _channelIcon = null;
-
-        /// <summary>Feed item icon.</summary>
+        BitmapImage _projectIcon = null;
+        BitmapImage _folderIcon = null;
+        BitmapImage _fileIcon = null;
         BitmapImage _itemIcon = null;
+        BitmapImage _moduleIcon = null;
 
         public delegate void UpdateGuiDelegate();
 
@@ -88,23 +77,28 @@ namespace Anguista.Main
 
             Width = _confConfig.SettingsWidth;
             Height = _confConfig.SettingsHeight;
-            
+
             txbConfigMaxPanels.Text = _configManager.MaxItemsOnPanel.ToString();
 
-            _channelIcon = WpfUtil.LoadImage(CHANNEL_ICON_URI);
-            _itemIcon = WpfUtil.LoadImage(ITEM_ICON_URI);
+            _projectIcon = WpfUtil.LoadImage(ICON_URI_PROJECT);
+            _itemIcon = WpfUtil.LoadImage(ICON_URI_ITEM);
 
         }
 
         private void _AddTrashBox()
         {
-         }
+        }
 
         /// <summary>Loaded event handler.</summary>
         /// <param name="sender">Sender Object.</param>
         /// <param name="e">Event parameters.</param>
         private void wndMain_Loaded(object sender, EventArgs e)
         {
+            _projectIcon = WpfUtil.LoadImage(ICON_URI_PROJECT);
+            _folderIcon = WpfUtil.LoadImage(ICON_URI_FOLDER);
+            _fileIcon = WpfUtil.LoadImage(ICON_URI_FILE);
+            _itemIcon = WpfUtil.LoadImage(ICON_URI_ITEM);
+            _moduleIcon = WpfUtil.LoadImage(ICON_URI_MODULE);
             /*
             if (_targets.Count <= 0)
             {
@@ -218,57 +212,6 @@ namespace Anguista.Main
             wndTarget.ShowDialog();
         }
 
-#if ZEPTAIR
-        /// <summary>Click event handler of the Zeptair Dist. Edit button.</summary>
-        /// <param name="sender">Sender Object.</param>
-        /// <param name="e">Event parameters.</param>
-        private void btnZeptDistEdit_Click(object sender, RoutedEventArgs e)
-        {
-            int selIdx = lstZeptDists.SelectedIndex;
-            if (selIdx < 0)
-                return;
-
-            WndTarget wndTarget = new WndTarget((RssTargetInfo)_zeptDistTargets[selIdx]);
-            wndTarget.Owner = this;
-            wndTarget.ShowDialog();
-        }
-
-        /// <summary>Click event handler of the Zeptair Dist. Delete button.</summary>
-        /// <param name="sender">Sender Object.</param>
-        /// <param name="e">Event parameters.</param>
-        private void btnZeptDistDelete_Click(object sender, RoutedEventArgs e)
-        {
-            int selIdx = lstZeptDists.SelectedIndex;
-            if (selIdx < 0)
-                return;
-
-            RssTargetInfo info = (RssTargetInfo)_zeptDistTargets[selIdx];
-
-            System.Windows.Forms.DialogResult ret = 
-                        System.Windows.Forms.MessageBox.Show(
-                                "\"" + info.Title + "\"" + Properties.Resources.CONFIRM_DELETE,
-                                this.Title,
-                                System.Windows.Forms.MessageBoxButtons.OKCancel,
-                                System.Windows.Forms.MessageBoxIcon.Question
-                            );
-            if (ret == System.Windows.Forms.DialogResult.OK)
-            {
-                if (info.CurPath != null)
-                    _deletedRssInfos.Add(info);
-                
-                _zeptDistTargets.RemoveAt(selIdx);
-                for (int i = selIdx; i < _zeptDistTargets.Count; i++)
-                    ((RssTargetInfo)_zeptDistTargets[i]).Idx = i;
-                
-                lstZeptDists.Items.RemoveAt(selIdx);
-                _targetsModified = true;
-
-                _UpdateZeptDistAddButton();
-            }
-        }
-#endif
-        /////////////////////////////////////////////////////////
-
         /// <summary>Click event handler of the OK button.</summary>
         /// <param name="sender">Sender Object.</param>
         /// <param name="e">Event parameters.</param>
@@ -319,7 +262,7 @@ namespace Anguista.Main
                 selTitle = selTitle.Substring(0, 20) + " ...";
 
             string msg = null;
-            if (selItem.Type == TRASH_NODE_ITEM)
+            if (selItem.Type == NODE_ITEM)
                 msg = "\"" + selTitle + "\"" + Properties.Resources.CONFIRM_RESTORE_TRASH;
             else
                 msg = Properties.Resources.CONFIRM_RESTORE_ALL_TRASH_1 + "\"" + selTitle + "\"" + Properties.Resources.CONFIRM_RESTORE_ALL_TRASH_2;
@@ -339,14 +282,14 @@ namespace Anguista.Main
                     if (ipcTaskService == null)
                         return;
 
-                    if (selItem.Type == TRASH_NODE_ITEM)
+                    if (selItem.Type == NODE_ITEM)
                     {
-//                        InfoItem infoItem = (InfoItem)selItem.AdditionalInfo;
-//                        ipcTaskService.RestoreTrash(infoItem.GeneratorId, new int[1] { infoItem.Id }); 
+                        //                        InfoItem infoItem = (InfoItem)selItem.AdditionalInfo;
+                        //                        ipcTaskService.RestoreTrash(infoItem.GeneratorId, new int[1] { infoItem.Id }); 
 
                         ((TreeViewImgItem)selItem.Parent).Items.Remove(selItem);
                     }
-                    else if (selItem.Type == TRASH_NODE_CHANNEL)
+                    else if (selItem.Type == NODE_FOLDER)
                     {
                         if (selItem.Items.Count <= 0)
                             return;
@@ -356,15 +299,15 @@ namespace Anguista.Main
 
                         for (int i = 0; i < selItem.Items.Count; i++)
                         {
-//                            InfoItem infoItem = (InfoItem)((TreeViewImgItem)selItem.Items[i]).AdditionalInfo;
-//                           generatorId = infoItem.GeneratorId;
-//                           itemIds[i] = infoItem.Id;
+                            //                            InfoItem infoItem = (InfoItem)((TreeViewImgItem)selItem.Items[i]).AdditionalInfo;
+                            //                           generatorId = infoItem.GeneratorId;
+                            //                           itemIds[i] = infoItem.Id;
                         }
                         selItem.Items.Clear();
 
                         ipcTaskService.RestoreTrash(generatorId, itemIds);
                     }
-                    else if (selItem.Type == TRASH_NODE_TARGET)
+                    else if (selItem.Type == NODE_PROJECT)
                     {
                         foreach (TreeViewImgItem channel in selItem.Items)
                         {
@@ -407,12 +350,12 @@ namespace Anguista.Main
                 selTitle = selTitle.Substring(0, 20) + " ...";
 
             string msg = null;
-            if (selItem.Type == TRASH_NODE_ITEM)
+            if (selItem.Type == NODE_ITEM)
                 msg = "\"" + selTitle + "\"" + Properties.Resources.CONFIRM_COMPLETELY_DELETE;
             else
                 msg = Properties.Resources.CONFIRM_COMPLETELY_ALL_DELETE_1 + "\"" + selTitle + "\"" + Properties.Resources.CONFIRM_COMPLETELY_ALL_DELETE_2;
-            
-            System.Windows.Forms.DialogResult ret = 
+
+            System.Windows.Forms.DialogResult ret =
                         System.Windows.Forms.MessageBox.Show(
                                 msg,
                                 this.Title,
@@ -427,14 +370,14 @@ namespace Anguista.Main
                     if (ipcTaskService == null)
                         return;
 
-                    if (selItem.Type == TRASH_NODE_ITEM)
+                    if (selItem.Type == NODE_ITEM)
                     {
-//                        InfoItem infoItem = (InfoItem)selItem.AdditionalInfo;
-//                        ipcTaskService.BurnUpTrash(infoItem.GeneratorId, new int[1] { infoItem.Id });
+                        //                        InfoItem infoItem = (InfoItem)selItem.AdditionalInfo;
+                        //                        ipcTaskService.BurnUpTrash(infoItem.GeneratorId, new int[1] { infoItem.Id });
 
-//                        ((TreeViewImgItem)selItem.Parent).Items.Remove(selItem);
+                        //                        ((TreeViewImgItem)selItem.Parent).Items.Remove(selItem);
                     }
-                    else if (selItem.Type == TRASH_NODE_CHANNEL)
+                    else if (selItem.Type == NODE_FOLDER)
                     {
                         if (selItem.Items.Count <= 0)
                             return;
@@ -452,7 +395,7 @@ namespace Anguista.Main
 
                         ipcTaskService.BurnUpTrash(generatorId, itemIds);
                     }
-                    else if (selItem.Type == TRASH_NODE_TARGET)
+                    else if (selItem.Type == NODE_PROJECT)
                     {
                         foreach (TreeViewImgItem channel in selItem.Items)
                         {
@@ -464,9 +407,9 @@ namespace Anguista.Main
 
                             for (int i = 0; i < channel.Items.Count; i++)
                             {
-//                                InfoItem infoItem = (InfoItem)((TreeViewImgItem)channel.Items[i]).AdditionalInfo;
-//                                generatorId = infoItem.GeneratorId;
-//                                itemIds[i] = infoItem.Id;
+                                //                                InfoItem infoItem = (InfoItem)((TreeViewImgItem)channel.Items[i]).AdditionalInfo;
+                                //                                generatorId = infoItem.GeneratorId;
+                                //                                itemIds[i] = infoItem.Id;
                             }
                             channel.Items.Clear();
 
@@ -506,30 +449,68 @@ namespace Anguista.Main
             if (projectPath == "")
                 return;
 
-            _channelIcon = WpfUtil.LoadImage(CHANNEL_ICON_URI);
-            _itemIcon = WpfUtil.LoadImage(ITEM_ICON_URI);
-
             Hashtable nodesHash = new Hashtable();
 
-            TreeViewImgItem node = new TreeViewImgItem(TRASH_NODE_CHANNEL);
-            node.Text = projectPath;
-            node.SelectedImage = _channelIcon;
-            node.IsExpanded = false;
+            trvProject.Items.Clear();
+
+            DirectoryInfo di = new DirectoryInfo(projectPath);
+            TreeViewImgItem node = new TreeViewImgItem(NODE_PROJECT);
+            node.Text = di.Name;
+            node.SelectedImage = _projectIcon;
+            node.IsExpanded = true;
 
             trvProject.Items.Add(node);
             nodesHash.Add("", node);
 
+            scanProjectTree(node, di);
+        }
+
+        private void scanProjectTree(TreeViewImgItem parentNode, DirectoryInfo parentDi)
+        {
             try
             {
-                DirectoryInfo dirList = new DirectoryInfo(projectPath);
-                foreach (DirectoryInfo di in dirList.GetDirectories())
+                foreach (DirectoryInfo di in parentDi.GetDirectories())
                 {
-                    TreeViewImgItem childNode = new TreeViewImgItem(TRASH_NODE_CHANNEL);
-                    childNode.Text = di.Name;
-                    childNode.SelectedImage = _itemIcon;
-                    childNode.IsExpanded = false;
+                    if (chkProjectDispAll.IsChecked != true)
+                    {
+                        if (di.Name.StartsWith(".")
+                            || di.Name.Equals("node_modules"))
+                        {
+                            continue;
+                        }
+                    }
+                    TreeViewImgItem folderNode = new TreeViewImgItem(NODE_FOLDER);
+                    folderNode.Text = di.Name;
+                    folderNode.SelectedImage = _folderIcon;
 
-                    trvProject.Items.Add(childNode);
+                    if (di.Name.Equals("src") || parentDi.Name.Equals("src"))
+                        folderNode.IsExpanded = true;
+                    else
+                        folderNode.IsExpanded = false;
+
+                    parentNode.Items.Add(folderNode);
+                    scanProjectTree(folderNode, di);
+                }
+
+                foreach (FileInfo fi in parentDi.EnumerateFiles())
+                {
+                    if (chkProjectDispAll.IsChecked != true)
+                    {
+                        if (fi.Name.StartsWith(".")
+                            || fi.Name.Contains(".spec."))
+                        {
+                            continue;
+                        }
+                    }
+                    TreeViewImgItem fileNode = new TreeViewImgItem(NODE_FILE);
+                    fileNode.Text = fi.Name;
+                    if (fi.Name.Contains(".module."))
+                        fileNode.SelectedImage = _moduleIcon;
+                    else if (fi.Name.EndsWith(".ts"))
+                        fileNode.SelectedImage = _itemIcon;
+                    else
+                        fileNode.SelectedImage = _fileIcon;
+                    parentNode.Items.Add(fileNode);
                 }
             }
             catch (IOException ie)

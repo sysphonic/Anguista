@@ -18,7 +18,10 @@
             <TextBox x:Uid="txbProjectPath" x:Name="txbProjectPath" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="341"/>
             <Button x:Uid="btnProjectPath" x:Name="btnProjectPath" Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="38" Click="btnProjectPath_Click" />
         </StackPanel>
-        <TreeView x:Uid="trvProject" x:Name="trvProject" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1" />
+        <DockPanel x:Uid="DockPanel_10" Grid.Column="1" Grid.Row="1">
+            <CheckBox x:Uid="chkProjectDispAll" x:Name="chkProjectDispAll" Content="Display All" Margin="0,0,0,0" DockPanel.Dock="Top" />
+            <TreeView x:Uid="trvProject" x:Name="trvProject" DockPanel.Dock="Top" />
+        </DockPanel>
         <TabControl x:Uid="TabControl_1" HorizontalContentAlignment="Stretch" Padding="5" Name="tabSettings" Grid.Column="2" Grid.Row="1" Margin="5,0,0,0" Background="#ffede4">
             <TabItem x:Uid="TabItem_1" Header="{Binding Source={StaticResource resources}, Path=GENERAL_CONFIG}" Name="tbiGeneral" IsSelected="True" Background="#ffede4">
                 <StackPanel x:Uid="StackPanel_2" Margin="5,0,5,10" Height="264" Orientation="Vertical">

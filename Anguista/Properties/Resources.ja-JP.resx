@@ -184,7 +184,7 @@
     <value>編集</value>
   </data>
   <data name="GENERAL_CONFIG" xml:space="preserve">
-    <value>全般</value>
+    <value>モジュール</value>
   </data>
   <data name="MAX_ITEMS_TO_DISPLAY" xml:space="preserve">
     <value>最大表示項目数 :</value>
@@ -205,7 +205,7 @@
     <value>RSSサイト</value>
   </data>
   <data name="RSS_SITES" xml:space="preserve">
-    <value>RSSサイト</value>
+    <value>コンポーネント</value>
   </data>
   <data name="RSS_TITLE" xml:space="preserve">
     <value>タイトル :</value>
@@ -217,7 +217,7 @@
     <value>Anguista</value>
   </data>
   <data name="TRASH" xml:space="preserve">
-    <value>ごみ箱</value>
+    <value>サービス</value>
   </data>
   <data name="PASSWORD" xml:space="preserve">
     <value>パスワード :</value>
@@ -240,9 +240,6 @@
   </data>
   <data name="config" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\config.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="file" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\file.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="file1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
