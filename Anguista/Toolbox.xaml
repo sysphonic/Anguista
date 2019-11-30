@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Anguista.Main.Toolbox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Anguista.Main"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" Width="124.8">
+    <Grid x:Uid="Grid_1" Margin="5,10,5,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Uid="ColumnDefinition_1" Width="268*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Uid="StackPanel_1" Orientation="Vertical" Grid.Column="1">
+            <Button x:Uid="btnCreate" Name="btnCreate" Margin="5" MinWidth="80" MaxWidth="80" MinHeight="25" Click="btnCreate_Click" Content="{Binding Source={StaticResource resources}, Path=CREATE}" />
+            <Button x:Uid="btnApply" Name="btnApply" Margin="5" MinWidth="80" MaxWidth="80" MinHeight="25" Click="btnApply_Click" Content="{Binding Source={StaticResource resources}, Path=APPLY}" />
+            <Separator Height="20" Margin="0,0,0,0" RenderTransformOrigin="0.521,0.094"/>
+            <Button x:Uid="btnCopy" Name="btnCopy" Margin="5" MinWidth="80" MaxWidth="80" MinHeight="25" Click="btnCopy_Click" Content="{Binding Source={StaticResource resources}, Path=COPY}" />
+            <Button x:Uid="btnCut" Name="btnCut" Margin="5" MinWidth="80" MaxWidth="80" MinHeight="25" Click="btnCut_Click" Content="{Binding Source={StaticResource resources}, Path=CUT}" />
+            <Button x:Uid="btnPaste" Name="btnPaste" Margin="5" MinWidth="80" MaxWidth="80" MinHeight="25" Click="btnPaste_Click" Content="{Binding Source={StaticResource resources}, Path=PASTE}" />
+            <Separator Height="20" Margin="0,0,0,0" RenderTransformOrigin="0.521,0.094"/>
+            <Button x:Uid="btnDelete" Name="btnDelete" Margin="5" MinWidth="80" MaxWidth="80" MinHeight="25" Click="btnDelete_Click" Content="{Binding Source={StaticResource resources}, Path=DELETE}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

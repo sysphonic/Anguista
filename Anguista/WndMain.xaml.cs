@@ -350,10 +350,11 @@ namespace Anguista.Main
                 selTitle = selTitle.Substring(0, 20) + " ...";
 
             string msg = null;
-            if (selItem.Type == NODE_ITEM)
-                msg = "\"" + selTitle + "\"" + Properties.Resources.CONFIRM_COMPLETELY_DELETE;
-            else
-                msg = Properties.Resources.CONFIRM_COMPLETELY_ALL_DELETE_1 + "\"" + selTitle + "\"" + Properties.Resources.CONFIRM_COMPLETELY_ALL_DELETE_2;
+
+//            if (selItem.Type == NODE_ITEM)
+//                msg = "\"" + selTitle + "\"" + Properties.Resources.CONFIRM_COMPLETELY_DELETE;
+//            else
+//                msg = Properties.Resources.CONFIRM_COMPLETELY_ALL_DELETE_1 + "\"" + selTitle + "\"" + Properties.Resources.CONFIRM_COMPLETELY_ALL_DELETE_2;
 
             System.Windows.Forms.DialogResult ret =
                         System.Windows.Forms.MessageBox.Show(

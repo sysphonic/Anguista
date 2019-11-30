@@ -61,15 +61,6 @@ namespace Anguista.Main.Properties {
         }
         
         /// <summary>
-        ///   Add に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string ADD {
-            get {
-                return ResourceManager.GetString("ADD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Apply に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string APPLY {
@@ -95,15 +86,6 @@ namespace Anguista.Main.Properties {
             get {
                 object obj = ResourceManager.GetObject("arrow_right_pink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Authentication に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string AUTHENTICATION {
-            get {
-                return ResourceManager.GetString("AUTHENTICATION", resourceCulture);
             }
         }
         
@@ -143,24 +125,6 @@ namespace Anguista.Main.Properties {
             get {
                 object obj = ResourceManager.GetObject("config", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Adopt the following words as title? に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string CONFIRM_ADOPT_AS_TITLE {
-            get {
-                return ResourceManager.GetString("CONFIRM_ADOPT_AS_TITLE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   All items in  に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string CONFIRM_COMPLETELY_ALL_DELETE_1 {
-            get {
-                return ResourceManager.GetString("CONFIRM_COMPLETELY_ALL_DELETE_1", resourceCulture);
             }
         }
         
@@ -228,11 +192,47 @@ namespace Anguista.Main.Properties {
         }
         
         /// <summary>
+        ///   Copy に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string COPY {
+            get {
+                return ResourceManager.GetString("COPY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Create に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CREATE {
+            get {
+                return ResourceManager.GetString("CREATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cut に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CUT {
+            get {
+                return ResourceManager.GetString("CUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Delete に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DELETE {
             get {
                 return ResourceManager.GetString("DELETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Display all に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DISPLAY_ALL {
+            get {
+                return ResourceManager.GetString("DISPLAY_ALL", resourceCulture);
             }
         }
         
@@ -339,11 +339,29 @@ namespace Anguista.Main.Properties {
         }
         
         /// <summary>
+        ///   Paste に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string PASTE {
+            get {
+                return ResourceManager.GetString("PASTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Polling Interval (min.) : に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string POLLING_INTERVAL {
             get {
                 return ResourceManager.GetString("POLLING_INTERVAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Project path に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string PROJECT_PATH {
+            get {
+                return ResourceManager.GetString("PROJECT_PATH", resourceCulture);
             }
         }
         

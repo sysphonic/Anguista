@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CONFIRM_COMPLETELY_ALL_DELETE_1" xml:space="preserve">
-    <value />
+  <data name="CANCEL" xml:space="preserve">
+    <value>キャンセル</value>
   </data>
   <data name="CONFIRM_COMPLETELY_ALL_DELETE_2" xml:space="preserve">
     <value> のすべての項目を完全に削除します。よろしいですか？</value>
@@ -159,20 +159,20 @@
   <data name="TITLE_EXISTS" xml:space="preserve">
     <value>指定されたタイトルはすでに存在します。</value>
   </data>
-  <data name="ADD" xml:space="preserve">
-    <value>追加</value>
+  <data name="CREATE" xml:space="preserve">
+    <value>新規作成</value>
   </data>
   <data name="APPLY" xml:space="preserve">
     <value>適用</value>
   </data>
-  <data name="AUTHENTICATION" xml:space="preserve">
-    <value>認証情報</value>
+  <data name="COPY" xml:space="preserve">
+    <value>コピー</value>
   </data>
-  <data name="CANCEL" xml:space="preserve">
-    <value>キャンセル</value>
+  <data name="CUT" xml:space="preserve">
+    <value>切り取り</value>
   </data>
-  <data name="CONFIRM_ADOPT_AS_TITLE" xml:space="preserve">
-    <value>次の文言をタイトルに採用しますか？</value>
+  <data name="PASTE" xml:space="preserve">
+    <value>貼り付け</value>
   </data>
   <data name="CONNECTION_RESULT_OK" xml:space="preserve">
     <value>接続確認 : OK</value>
@@ -249,5 +249,11 @@
   </data>
   <data name="module" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\module.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DISPLAY_ALL" xml:space="preserve">
+    <value>すべて表示</value>
+  </data>
+  <data name="PROJECT_PATH" xml:space="preserve">
+    <value>プロジェクト・パス</value>
   </data>
 </root>

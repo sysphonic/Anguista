@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CONFIRM_COMPLETELY_ALL_DELETE_1" xml:space="preserve">
-    <value>All items in </value>
+  <data name="PASTE" xml:space="preserve">
+    <value>Paste</value>
   </data>
   <data name="CONFIRM_COMPLETELY_ALL_DELETE_2" xml:space="preserve">
     <value> will be completely deleted. Are you sure?</value>
@@ -159,20 +159,20 @@
   <data name="TITLE_EXISTS" xml:space="preserve">
     <value>The Title already exists.</value>
   </data>
-  <data name="ADD" xml:space="preserve">
-    <value>Add</value>
+  <data name="CREATE" xml:space="preserve">
+    <value>Create</value>
   </data>
   <data name="APPLY" xml:space="preserve">
     <value>Apply</value>
   </data>
-  <data name="AUTHENTICATION" xml:space="preserve">
-    <value>Authentication</value>
+  <data name="COPY" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="CUT" xml:space="preserve">
+    <value>Cut</value>
   </data>
   <data name="CANCEL" xml:space="preserve">
     <value>Cancel</value>
-  </data>
-  <data name="CONFIRM_ADOPT_AS_TITLE" xml:space="preserve">
-    <value>Adopt the following words as title?</value>
   </data>
   <data name="CONNECTION_RESULT_OK" xml:space="preserve">
     <value>Connection Result : OK</value>
@@ -249,5 +249,11 @@
   </data>
   <data name="module" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\module.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DISPLAY_ALL" xml:space="preserve">
+    <value>Display all</value>
+  </data>
+  <data name="PROJECT_PATH" xml:space="preserve">
+    <value>Project path</value>
   </data>
 </root>
